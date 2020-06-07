@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>EventShare</title>
+  </head>
+  <body>
+    <h1>Vytvořte novou událost:</h1>
+    <div class="container">
+      <div class="tooltip">
+        <input type="text" id="nazev" placeholder="Název události" autofocus />
+        <span class="tooltiptext">Vložte název vaší události</span>
+      </div>
+
+      <div class="tooltip">
+        <input type="date" id="date" />
+        <span class="tooltiptext">Zadejte datum události</span>
+      </div>
+
+      <textarea id="popis" placeholder="Popis události" rows="5"></textarea>
+
+      <div class="tooltip">
+        <input type="text" id="venue" placeholder="Místo konání" />
+        <span class="tooltiptext">Místo konání</span>
+      </div>
+    </div>
+    <button class="vygeneruj">Vytvoř událost</button>
+
+    <script src="index.js"></script>
+  </body>
+</html>
