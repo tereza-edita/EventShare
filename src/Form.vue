@@ -4,7 +4,7 @@
 
     <form>
       <div class="form-item">
-        <input type="text" required />
+        <input type="text" required v-model="title" />
         <span class="highlight"></span>
         <span class="bar"></span>
         <label>Název události</label>
@@ -43,18 +43,24 @@
 </template>
 
 <script>
+import db from "./db.js";
+
 export default {
   name: "Form",
   data() {
     return {
-      date: ""
+      date: "",
+      title: "",
     };
   },
   methods: {
     saveEvent() {
-      console.log(this.date);
+      db.collection("events").add({
+        title: this.title,
+      });
+
       this.$router.push("event");
-    }
+    },
   },
   mounted() {
     const date = new Date();
@@ -69,7 +75,7 @@ export default {
     const today = year + "-" + month + "-" + day;
 
     this.date = today;
-  }
+  },
 };
 </script>
 
