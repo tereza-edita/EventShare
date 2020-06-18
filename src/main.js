@@ -4,7 +4,9 @@ import App from './App.vue';
 import Form from './Form.vue';
 import Event from './Event.vue';
 import './index.html';
+import { firestorePlugin } from 'vuefire';
 
+Vue.use(firestorePlugin);
 Vue.use(VueRouter);
 
 const myRouter = new VueRouter({
