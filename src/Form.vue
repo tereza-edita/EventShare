@@ -1,27 +1,44 @@
 <template>
   <div class="container">
     <h1>Vytvořte novou událost:</h1>
-    <div class="tooltip">
-      <input type="text" id="nazev" placeholder="Název události" autofocus />
-      <span class="tooltiptext">Vložte název vaší události</span>
-    </div>
 
-    <div class="tooltip">
-      <input type="date" id="date" v-model="date" />
-      <span class="tooltiptext">Zadejte datum události</span>
-    </div>
+    <form>
+      <div class="form-item">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Název události</label>
+      </div>
 
-    <textarea id="popis" placeholder="Popis události" rows="5"></textarea>
+      <div class="form-item">
+        <input type="date" id="date" v-model="date" />
+        <span class="highlight"></span>
+        <span class="bar date-bar"></span>
+        <label>Datum</label>
+      </div>
 
-    <div class="tooltip">
-      <input type="text" id="venue" placeholder="Místo konání" />
-      <span class="tooltiptext">Místo konání</span>
-    </div>
-    <div class="tooltip">
-      <input type="text" id="venue" placeholder="Heslo události" />
-      <span class="tooltiptext">Heslo události</span>
-    </div>
-    <button class="vygeneruj" @click="saveEvent">Vytvoř událost</button>
+      <div class="form-item">
+        <textarea type="text" id="description" required rows="5"></textarea>
+        <span class="highlight"></span>
+        <span class="bar description-bar"></span>
+        <label>Popis události</label>
+      </div>
+
+      <div class="form-item">
+        <input type="text" id="venue" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Místo konání</label>
+      </div>
+
+      <div class="form-item">
+        <input type="text" id="password" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Heslo pro vstup</label>
+      </div>
+    </form>
+    <button class="create" @click="saveEvent">Vytvoř událost</button>
   </div>
 </template>
 
@@ -30,14 +47,14 @@ export default {
   name: "Form",
   data() {
     return {
-      date: "",
+      date: ""
     };
   },
   methods: {
     saveEvent() {
       console.log(this.date);
       this.$router.push("event");
-    },
+    }
   },
   mounted() {
     const date = new Date();
@@ -52,7 +69,7 @@ export default {
     const today = year + "-" + month + "-" + day;
 
     this.date = today;
-  },
+  }
 };
 </script>
 
@@ -60,61 +77,167 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-/* Jednotlivá pole */
-
-#nazev,
-#date,
-#popis,
-#venue {
-  padding: 8px;
-  margin: 5px 0;
-  width: 500px;
-  font-size: 16px;
-  background-color: rgb(240, 171, 181);
-  border-radius: 5px;
+h1 {
+  text-align: center;
 }
 
-::placeholder {
-  color: rgb(104, 60, 66);
+.form-item {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 100%;
+  border: none;
 }
 
 textarea {
-  font-family: inherit;
-  font-size: inherit;
+  width: 100%;
+  border: none;
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+#date {
+  max-width: 200px;
+}
+
+/* LABEL ======================================= */
+label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label,
+textarea:focus ~ label,
+textarea:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264ae;
+}
+
+/* BOTTOM BARS ================================= */
+.bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.date-bar {
+  max-width: 200px;
+}
+
+.description-bar:before,
+.description-bar:after {
+  bottom: 1px !important;
+}
+
+.bar:before,
+.bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #06d7c1;
+  transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -webkit-transition: 0.3s ease all;
+}
+.bar:before {
+  left: 50%;
+}
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after,
+textarea:focus ~ .bar:before,
+textarea:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight,
+textarea:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.5s ease;
+  -moz-animation: inputHighlighter 0.5s ease;
+  animation: inputHighlighter 0.5s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
 }
 
 /* Buttony */
 
-.vygeneruj {
+.create {
   margin: 10px 0;
   padding: 10px;
   cursor: pointer;
   width: 150px;
-}
-
-/* Tooltipu */
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltiptext {
-  visibility: hidden;
-  width: 220px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  left: 40%;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
+  background-color: #06d7c1;
+  border-radius: 5px;
 }
 </style>
