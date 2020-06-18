@@ -11,6 +11,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.vue'],
+  },
   module: {
     rules: [
       {
@@ -35,7 +38,8 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name]-[hash:6].[ext]',
-              outputPath: 'assets/img'
+              outputPath: 'assets/img',
+              esModule: false,
             }
           }
         ]
@@ -56,4 +60,5 @@ module.exports = {
       }],
     }),
   ],
+  devServer: { historyApiFallback: true },
 };
