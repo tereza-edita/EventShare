@@ -3,18 +3,13 @@
     <h1>Vytvořte novou událost:</h1>
 
     <form>
-      <div class="form-item">
-        <input type="text" required v-model="title" />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Název události</label>
-      </div>
+      <MyText label="Název události" v-model="title" />
 
       <div class="form-item">
         <input type="date" id="date" v-model="date" />
         <span class="highlight"></span>
         <span class="bar date-bar"></span>
-        <label>Dat</label>
+        <label>Datum</label>
       </div>
 
       <div class="form-item">
@@ -43,40 +38,44 @@
 </template>
 
 <script>
-import db from "../db.js";
+import db from '../db.js'
+import Text from '../components/Text'
 
 export default {
-  name: "Form",
-  data() {
+  name: 'Form',
+  data () {
     return {
-      date: "",
-      title: "",
-    };
+      date: '',
+      title: 'test'
+    }
+  },
+  components: {
+    MyText: Text
   },
   methods: {
-    saveEvent() {
-      db.collection("events").add({
-        title: this.title,
-      });
+    saveEvent () {
+      db.collection('events').add({
+        title: this.title
+      })
 
-      this.$router.push("event");
-    },
+      this.$router.push('event')
+    }
   },
-  mounted() {
-    const date = new Date();
+  mounted () {
+    const date = new Date()
 
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    const year = date.getFullYear();
+    let day = date.getDate()
+    let month = date.getMonth() + 1
+    const year = date.getFullYear()
 
-    if (month < 10) month = "0" + month;
-    if (day < 10) day = "0" + day;
+    if (month < 10) month = '0' + month
+    if (day < 10) day = '0' + day
 
-    const today = year + "-" + month + "-" + day;
+    const today = year + '-' + month + '-' + day
 
-    this.date = today;
-  },
-};
+    this.date = today
+  }
+}
 </script>
 
 <style>
@@ -163,7 +162,7 @@ textarea:valid ~ label {
 
 .bar:before,
 .bar:after {
-  content: "";
+  content: '';
   height: 2px;
   width: 0;
   bottom: 0px;
