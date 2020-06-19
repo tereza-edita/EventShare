@@ -14,7 +14,7 @@
         <input type="date" id="date" v-model="date" />
         <span class="highlight"></span>
         <span class="bar date-bar"></span>
-        <label>Datum</label>
+        <label>Dat</label>
       </div>
 
       <div class="form-item">
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import db from "./db.js";
+import db from "../db.js";
 
 export default {
   name: "Form",

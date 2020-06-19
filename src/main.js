@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
-import Form from './Form.vue';
-import Event from './Event.vue';
+import Form from './pages/Form.vue';
+import Event from './pages/Event.vue';
 import './index.html';
 import { firestorePlugin } from 'vuefire';
 
