@@ -98,10 +98,6 @@ input:focus {
   outline: none;
 }
 
-#date {
-  max-width: 200px;
-}
-
 /* LABEL ======================================= */
 label {
   color: #999;
