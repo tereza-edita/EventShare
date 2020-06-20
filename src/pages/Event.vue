@@ -1,5 +1,7 @@
 <template>
-  <MyTemplate :isEditable="false" />
+  <div>
+    <MyTemplate v-for="(event, index) in events" :key="index" :isEditable="false" v-bind="event" />
+  </div>
 </template>
 
 <script>

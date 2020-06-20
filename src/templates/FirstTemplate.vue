@@ -1,15 +1,13 @@
 <template>
   <div class="container">
-    <h1>Vytvořte novou událost:</h1>
-
     <form>
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />
       <MyDate label="Datum" :isEditable="isEditable" v-model="event.date" />
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
       <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
       <MyText label="Heslo pro vstup" :isEditable="isEditable" v-model="event.password" />
+      <button class="create" type="submit" v-if="isEditable" @click="saveEvent">Vytvoř událost</button>
     </form>
-    <button class="create" v-if="isEditable" @click="saveEvent">Vytvoř událost</button>
   </div>
 </template>
 
@@ -25,17 +23,37 @@ export default {
   data() {
     return {
       event: {
-        date: "",
-        title: "",
-        description: "",
-        venue: "",
-        password: ""
+        date: this.date,
+        title: this.title,
+        description: this.description,
+        venue: this.venue,
+        password: this.password
       }
     };
   },
   props: {
     isEditable: {
       type: Boolean,
+      required: true
+    },
+    date: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    description: {
+      type: String,
+      required: true
+    },
+    venue: {
+      type: String,
+      required: true
+    },
+    password: {
+      type: String,
       required: true
     }
   },
