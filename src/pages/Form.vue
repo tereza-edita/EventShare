@@ -3,29 +3,11 @@
     <h1>Vytvořte novou událost:</h1>
 
     <form>
-      <MyText label="Název události" v-model="title" />
-      <MyDate label="Datum" v-model="date" />
-
-      <div class="form-item">
-        <textarea type="text" id="description" required rows="5"></textarea>
-        <span class="highlight"></span>
-        <span class="bar description-bar"></span>
-        <label>Popis události</label>
-      </div>
-
-      <div class="form-item">
-        <input type="text" id="venue" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Místo konání</label>
-      </div>
-
-      <div class="form-item">
-        <input type="text" id="password" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Heslo pro vstup</label>
-      </div>
+      <MyText label="Název události" v-model="event.title" />
+      <MyDate label="Datum" v-model="event.date" />
+      <MyText label="Popis události" v-model="event.description" />
+      <MyText label="Místo konání" v-model="event.venue" />
+      <MyText label="Heslo pro vstup" v-model="event.password" />
     </form>
     <button class="create" @click="saveEvent">Vytvoř událost</button>
   </div>
@@ -40,8 +22,13 @@ export default {
   name: "Form",
   data() {
     return {
-      date: "",
-      title: "test",
+      event: {
+        date: "",
+        title: "",
+        description: "",
+        venue: "",
+        password: "",
+      },
     };
   },
   components: {
@@ -50,9 +37,7 @@ export default {
   },
   methods: {
     saveEvent() {
-      db.collection("events").add({
-        title: this.title,
-      });
+      db.collection("events").add(this.event);
 
       this.$router.push("event");
     },
