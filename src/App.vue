@@ -4,12 +4,12 @@
 
 <script>
 export default {
-  name: "App",
-  data() {
-    return {};
+  name: 'App',
+  data () {
+    return {}
   },
-  mounted() {
-    this.$router.push("/");
-  },
-};
+  mounted () {
+    this.$router.push('/')
+  }
+}
 </script>
