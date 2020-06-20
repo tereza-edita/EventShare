@@ -1,22 +1,23 @@
 <template>
-  <main>
-    <h1>Moje udalost</h1>
-    <p>{{ JSON.stringify(events) }}</p>
-  </main>
+  <MyTemplate :isEditable="false" />
 </template>
 
 <script>
 import db from "../db.js";
+import FirstTemplate from "../templates/FirstTemplate";
 
 export default {
   name: "Event",
   data() {
     return {
-      events: [],
+      events: []
     };
   },
-  firestore: {
-    events: db.collection("events"),
+  components: {
+    MyTemplate: FirstTemplate
   },
+  firestore: {
+    events: db.collection("events")
+  }
 };
 </script>
