@@ -23,4 +23,4 @@ new Vue({
   render: h => h(App)
 })
 
-Loader.load()
+

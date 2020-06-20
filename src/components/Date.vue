@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'DateComponent',
+  name: "DateComponent",
   props: {
     value: {
       type: String,
@@ -28,29 +28,28 @@ export default {
     }
   },
   watch: {
-    value () {
-      this.$emit('input', this.value)
-      console.log(this.value)
+    value() {
+      this.$emit("input", this.value);
     }
   },
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  mounted () {
-    const date = new Date()
+  mounted() {
+    const date = new Date();
 
-    let day = date.getDate()
-    let month = date.getMonth() + 1
-    const year = date.getFullYear()
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
 
-    if (month < 10) month = '0' + month
-    if (day < 10) day = '0' + day
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
 
-    const today = year + '-' + month + '-' + day
+    const today = year + "-" + month + "-" + day;
 
-    this.value = today
+    this.value = today;
   }
-}
+};
 </script>
 
 <style>

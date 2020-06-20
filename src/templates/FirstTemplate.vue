@@ -6,7 +6,7 @@
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />
       <MyDate label="Datum" :isEditable="isEditable" v-model="event.date" />
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
-      <MyText label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
+      <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
       <MyText label="Heslo pro vstup" :isEditable="isEditable" v-model="event.password" />
     </form>
     <button class="create" v-if="isEditable" @click="saveEvent">Vytvoř událost</button>
@@ -18,6 +18,7 @@ import db from "../db.js";
 import TextComponent from "../components/Text";
 import DateComponent from "../components/Date";
 import TextareaComponent from "../components/Textarea";
+import MapComponent from "../components/Map";
 
 export default {
   name: "FirstTemplate",
@@ -41,7 +42,8 @@ export default {
   components: {
     MyText: TextComponent,
     MyDate: DateComponent,
-    MyTextarea: TextareaComponent
+    MyTextarea: TextareaComponent,
+    MyMap: MapComponent
   },
   methods: {
     saveEvent() {
