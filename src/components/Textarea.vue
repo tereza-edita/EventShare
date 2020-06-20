@@ -1,8 +1,7 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <textarea type="text" id="description" required rows="5" v-model="value">
-      </textarea>
+      <textarea type="text" required rows="5" v-model="value"> </textarea>
       <span class="highlight"></span>
       <span class="bar description-bar"></span>
       <label>{{ label }}</label>
@@ -13,31 +12,31 @@
 
 <script>
 export default {
-  name: 'Textarea',
+  name: "Textarea",
   props: {
     value: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      required: true
+      required: true,
     },
     isEditable: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   watch: {
-    value () {
-      this.$emit('input', this.value)
-      console.log(this.value)
-    }
+    value() {
+      this.$emit("input", this.value);
+      console.log(this.value);
+    },
   },
-  data () {
-    return {}
-  }
-}
+  data() {
+    return {};
+  },
+};
 </script>
 
 <style>

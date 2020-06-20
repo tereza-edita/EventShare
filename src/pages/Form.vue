@@ -5,7 +5,7 @@
     <form>
       <MyText label="Název události" v-model="event.title" />
       <MyDate label="Datum" v-model="event.date" />
-      <MyText label="Popis události" v-model="event.description" />
+      <MyTextarea label="Popis události" v-model="event.description" />
       <MyText label="Místo konání" v-model="event.venue" />
       <MyText label="Heslo pro vstup" v-model="event.password" />
     </form>
@@ -17,6 +17,7 @@
 import db from "../db.js";
 import TextComponent from "../components/Text";
 import DateComponent from "../components/Date";
+import TextareaComponent from "../components/Textarea";
 
 export default {
   name: "Form",
@@ -34,6 +35,7 @@ export default {
   components: {
     MyText: TextComponent,
     MyDate: DateComponent,
+    MyTextarea: TextareaComponent,
   },
   methods: {
     saveEvent() {
