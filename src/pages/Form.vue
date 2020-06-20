@@ -4,13 +4,7 @@
 
     <form>
       <MyText label="Název události" v-model="title" />
-
-      <div class="form-item">
-        <input type="date" id="date" v-model="date" />
-        <span class="highlight"></span>
-        <span class="bar date-bar"></span>
-        <label>Datum</label>
-      </div>
+      <MyDate label="Datum" v-model="date" />
 
       <div class="form-item">
         <textarea type="text" id="description" required rows="5"></textarea>
@@ -38,44 +32,32 @@
 </template>
 
 <script>
-import db from '../db.js'
-import Text from '../components/Text'
+import db from "../db.js";
+import TextComponent from "../components/Text";
+import DateComponent from "../components/Date";
 
 export default {
-  name: 'Form',
-  data () {
+  name: "Form",
+  data() {
     return {
-      date: '',
-      title: 'test'
-    }
+      date: "",
+      title: "test",
+    };
   },
   components: {
-    MyText: Text
+    MyText: TextComponent,
+    MyDate: DateComponent,
   },
   methods: {
-    saveEvent () {
-      db.collection('events').add({
-        title: this.title
-      })
+    saveEvent() {
+      db.collection("events").add({
+        title: this.title,
+      });
 
-      this.$router.push('event')
-    }
+      this.$router.push("event");
+    },
   },
-  mounted () {
-    const date = new Date()
-
-    let day = date.getDate()
-    let month = date.getMonth() + 1
-    const year = date.getFullYear()
-
-    if (month < 10) month = '0' + month
-    if (day < 10) day = '0' + day
-
-    const today = year + '-' + month + '-' + day
-
-    this.date = today
-  }
-}
+};
 </script>
 
 <style>
@@ -162,7 +144,7 @@ textarea:valid ~ label {
 
 .bar:before,
 .bar:after {
-  content: '';
+  content: "";
   height: 2px;
   width: 0;
   bottom: 0px;
