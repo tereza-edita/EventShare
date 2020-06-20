@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <input type="date" class="date" v-model="date" />
+      <input type="date" class="date" v-model="value" />
       <span class="highlight"></span>
       <span class="bar date-bar"></span>
       <label>{{ label }}</label>
@@ -12,45 +12,45 @@
 
 <script>
 export default {
-  name: 'Date',
+  name: "Date",
   props: {
     value: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      required: true
+      required: true,
     },
     isEditable: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   watch: {
-    value () {
-      this.$emit('input', this.value)
-      console.log(this.value)
-    }
+    value() {
+      this.$emit("input", this.value);
+      console.log(this.value);
+    },
   },
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  mounted () {
-    const date = new Date()
+  mounted() {
+    const date = new Date();
 
-    let day = date.getDate()
-    let month = date.getMonth() + 1
-    const year = date.getFullYear()
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    const year = date.getFullYear();
 
-    if (month < 10) month = '0' + month
-    if (day < 10) day = '0' + day
+    if (month < 10) month = "0" + month;
+    if (day < 10) day = "0" + day;
 
-    const today = year + '-' + month + '-' + day
+    const today = year + "-" + month + "-" + day;
 
-    this.date = today
-  }
-}
+    this.value = today;
+  },
+};
 </script>
 
 <style>
