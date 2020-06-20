@@ -65,8 +65,11 @@ export default {
   },
   methods: {
     saveEvent() {
-      db.collection("events").add(this.event);
-
+      db.collection("events")
+        .add(this.event)
+        .then(docRef => {
+          docRef.update({ id: docRef.id });
+        });
       this.$router.push("event");
     }
   }
