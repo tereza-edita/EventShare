@@ -83,6 +83,7 @@ export default {
   width: 60vw;
   height: 50vh;
   border: 1px solid black;
+  display: none;
 }
 .mapRender {
   display: flex;

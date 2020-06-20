@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MyTemplate v-for="(event, index) in events" :key="index" :isEditable="false" v-bind="event" />
+    <MyTemplate :isEditable="false" v-bind="event" />
   </div>
 </template>
 
@@ -12,14 +12,28 @@ export default {
   name: "Event",
   data() {
     return {
-      events: []
+      event: {
+        date: "",
+        title: "",
+        description: "",
+        venue: "praha",
+        password: ""
+      }
     };
   },
   components: {
     MyTemplate: FirstTemplate
   },
-  firestore: {
-    events: db.collection("events")
+  updated() {
+    console.log(this.$route.params.id);
+    db.collection("events")
+      .doc(this.$route.params.id)
+      .get()
+      .then(snapshot => {
+        const document = snapshot.data();
+        this.$set(this.event, "title", document.title);
+        console.log(this.event);
+      });
   }
 };
 </script>

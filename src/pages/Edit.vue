@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <h1>Vytvořte novou událost:</h1>
+  <div class="site">
     <MyTemplate :isEditable="true" v-bind="event" />
   </div>
 </template>
@@ -26,3 +25,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.site {
+  display: flex;
+  justify-content: center;
+  margin: 10px 5px;
+}
+</style>

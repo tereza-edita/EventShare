@@ -1,12 +1,15 @@
 <template>
   <div class="container">
+    <h1>Vytvořte novou událost:</h1>
     <form>
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />
       <MyDate label="Datum" :isEditable="isEditable" v-model="event.date" />
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
       <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
       <MyText label="Heslo pro vstup" :isEditable="isEditable" v-model="event.password" />
-      <button class="create" type="submit" v-if="isEditable" @click="saveEvent">Vytvoř událost</button>
+      <div class="buttonDiv">
+        <button class="create" type="submit" v-if="isEditable" @click="saveEvent">Vytvoř událost</button>
+      </div>
     </form>
   </div>
 </template>
@@ -70,6 +73,7 @@ export default {
         .then(docRef => {
           docRef.update({ id: docRef.id });
         });
+
       this.$router.push("event");
     }
   }
@@ -80,16 +84,27 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
+  padding: 0 20px;
+  background-color: whitesmoke;
+  box-shadow: 1px 0px 18px -3px #000000;
   width: 100%;
+  max-width: 500px;
 }
 
 h1 {
   text-align: center;
+  margin: 30px 0;
+}
+
+form {
+  margin: auto;
+  width: 100%;
 }
 
 .form-item {
   position: relative;
-  margin-bottom: 45px;
+  margin-bottom: 35px;
+  width: 100%;
 }
 
 input {
@@ -231,12 +246,18 @@ textarea:focus ~ .highlight {
 
 /* Buttony */
 
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+}
+
 .create {
-  margin: 10px 0;
+  margin: -20px 0 20px 0;
   padding: 10px;
   cursor: pointer;
   width: 150px;
-  background-color: #06d7c1;
-  border-radius: 5px;
+  background-color: #d6ae7b;
+  border: none;
+  box-shadow: 0px 10px 13px -7px #000000;
 }
 </style>

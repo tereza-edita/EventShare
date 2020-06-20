@@ -13,7 +13,7 @@ const myRouter = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: Edit },
-    { path: '/event', component: Event }
+    { path: '/event/:id', component: Event }
   ]
 })
 
