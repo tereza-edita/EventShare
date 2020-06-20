@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <input type="text" id="street" v-on:blur="showMapResult()" required v-model="value" />
+      <input type="text" v-on:blur="showMapResult()" required v-model="value" />
       <span class="highlight"></span>
       <span class="bar"></span>
       <label>{{ label }}</label>
@@ -9,7 +9,7 @@
     <p v-else>{{ value }}</p>
 
     <div class="mapRender">
-      <div id="mapa"></div>
+      <div ref="mapa" class="mapa"></div>
     </div>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
     }
   },
   mounted() {
-    let main = document.querySelector("#mapa");
+    let main = this.$refs.mapa;
     let center = SMap.Coords.fromWGS84(14.4179, 50.12655);
     this.map = new SMap(main, center, 13);
     this.map.addDefaultLayer(SMap.DEF_BASE).enable();
@@ -70,12 +70,16 @@ export default {
     this.layer = new SMap.Layer.Marker();
     this.map.addLayer(this.layer);
     this.layer.enable();
+
+    if (!this.isEditable) {
+      this.showMapResult();
+    }
   }
 };
 </script>
 
 <style>
-#mapa {
+.mapa {
   width: 60vw;
   height: 50vh;
   border: 1px solid black;
