@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import db from "../db.js";
+import db from "../firebase/db";
 import TextComponent from "../components/Text";
 import DateComponent from "../components/Date";
 import TextareaComponent from "../components/Textarea";
