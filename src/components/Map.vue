@@ -34,7 +34,9 @@ export default {
   watch: {
     value() {
       this.$emit("input", this.value);
-      console.log(this.value);
+      if (!this.isEditable) {
+        this.showMapResult();
+      }
     }
   },
   data() {
@@ -70,24 +72,6 @@ export default {
     this.layer = new SMap.Layer.Marker();
     this.map.addLayer(this.layer);
     this.layer.enable();
-
-    if (!this.isEditable) {
-      this.showMapResult();
-    }
   }
 };
 </script>
-
-<style>
-.mapa {
-  width: 60vw;
-  height: 50vh;
-  border: 1px solid black;
-  display: none;
-}
-.mapRender {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 45px;
-}
-</style>

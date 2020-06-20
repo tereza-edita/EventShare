@@ -30,7 +30,6 @@ export default {
   watch: {
     value () {
       this.$emit('input', this.value)
-      console.log(this.value)
     }
   },
   data () {

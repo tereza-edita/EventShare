@@ -30,7 +30,6 @@ export default {
   watch: {
     value() {
       this.$emit("input", this.value);
-      console.log(this.value);
     },
   },
   data() {
@@ -38,15 +37,3 @@ export default {
   },
 };
 </script>
-
-<style>
-textarea {
-  width: 100%;
-  border: none;
-}
-
-textarea:focus {
-  border: none;
-  outline: none;
-}
-</style>

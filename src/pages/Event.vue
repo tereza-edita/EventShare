@@ -12,28 +12,16 @@ export default {
   name: "Event",
   data() {
     return {
-      event: {
-        date: "",
-        title: "",
-        description: "",
-        venue: "praha",
-        password: ""
-      }
+        event: null
     };
   },
   components: {
     MyTemplate: FirstTemplate
   },
-  updated() {
-    console.log(this.$route.params.id);
-    db.collection("events")
-      .doc(this.$route.params.id)
-      .get()
-      .then(snapshot => {
-        const document = snapshot.data();
-        this.$set(this.event, "title", document.title);
-        console.log(this.event);
-      });
+  firestore() {
+      return {
+          event: db.collection("events").doc(this.$route.params.id)
+      }
   }
 };
 </script>

@@ -11,13 +11,7 @@ export default {
   name: "Edit",
   data() {
     return {
-      event: {
-        date: "",
-        title: "",
-        description: "",
-        venue: "",
-        password: ""
-      }
+      event: null
     };
   },
   components: {
@@ -25,11 +19,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.site {
-  display: flex;
-  justify-content: center;
-  margin: 10px 5px;
-}
-</style>
