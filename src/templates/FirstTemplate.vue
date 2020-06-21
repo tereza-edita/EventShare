@@ -14,6 +14,10 @@
         <button class="create" type="submit" v-if="isEditable">Vytvoř událost</button>
       </div>
     </form>
+    <div id="link" v-if="!isEditable">
+      <input type="text" :value="link" readonly ref="link" />
+      <button @click="copy">Kopíruj</button>
+    </div>
   </div>
 </template>
 
@@ -37,7 +41,8 @@ export default {
         description: "",
         venue: "",
         password: ""
-      }
+      },
+      link: window.location.href
     };
   },
   props: {
@@ -88,6 +93,17 @@ export default {
           docRef.update({ id: docRef.id });
           this.$router.push(`event/${docRef.id}`);
         });
+    },
+    copy() {
+      /* Get the text field */
+      const copyText = this.$refs.link;
+
+      /* Select the text field */
+      copyText.select();
+      copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+      /* Copy the text inside the text field */
+      document.execCommand("copy");
     }
   },
   mounted() {

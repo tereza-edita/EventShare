@@ -204,6 +204,15 @@ textarea:focus ~ .highlight {
   box-shadow: 0px 10px 13px -7px #000000;
 }
 
+#link {
+  display: flex;
+  margin: 30px 0;
+}
+
+#link > input {
+  font-size: 14px;
+}
+
 /* Pages */
 .site {
   display: flex;
