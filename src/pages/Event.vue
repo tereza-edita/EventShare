@@ -1,6 +1,6 @@
 <template>
   <div class="site">
-    <MyTemplate :isEditable="false" v-bind="event" />
+    <MyTemplate v-if="displayContent" :isEditable="false" v-bind="event" />
   </div>
 </template>
 
@@ -12,15 +12,25 @@ export default {
   name: "Event",
   data() {
     return {
-      event: null
+      event: null,
+      displayContent: false
     };
   },
   components: {
     MyTemplate: FirstTemplate
   },
   firestore() {
+    const event = db.collection("events").doc(this.$route.params.id);
+    event.onSnapshot(doc => {
+      const eventData = doc.data();
+      let password;
+      do {
+        password = prompt(`Zadejte heslo k události "${eventData.title}":`);
+      } while (password !== eventData.password);
+      this.displayContent = true;
+    });
     return {
-      event: db.collection("events").doc(this.$route.params.id)
+      event: event
     };
   }
 };

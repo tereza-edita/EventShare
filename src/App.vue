@@ -247,7 +247,6 @@ textarea:focus ~ .highlight {
 .mapRender {
   display: flex;
   justify-content: center;
-  margin-bottom: 45px;
 }
 
 textarea {
