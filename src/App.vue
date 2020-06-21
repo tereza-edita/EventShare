@@ -238,7 +238,7 @@ textarea:focus ~ .highlight {
   max-width: 180px;
 }
 
-.mapa {
+.map {
   width: 60vw;
   height: 50vh;
   border: 1px solid black;
