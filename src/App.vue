@@ -38,6 +38,10 @@ h1 {
   margin: 30px 0;
 }
 
+h4 {
+  color: #5264ae;
+}
+
 form {
   margin: auto;
   width: 100%;
@@ -55,12 +59,16 @@ input {
   display: block;
   width: 100%;
   border: none;
+  font-family: "Roboto", sans-serif;
 }
 
 textarea {
   width: 100%;
   border: none;
   font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  resize: vertical;
+  min-height: 45px;
 }
 
 textarea:focus {
@@ -200,7 +208,7 @@ textarea:focus ~ .highlight {
   padding: 10px;
   cursor: pointer;
   min-width: 150px;
-  background-color: #76a075;
+  background-color: #e79c2a;
   border: none;
   box-shadow: 0px 10px 13px -7px #000000;
   font-size: 0.9rem;
@@ -253,6 +261,13 @@ textarea:focus ~ .highlight {
 
 .time {
   max-width: 180px;
+}
+
+.date-display,
+.time-display,
+.location-display,
+.description-display {
+  font-size: 18px;
 }
 
 .map {

@@ -6,7 +6,10 @@
       <span class="bar description-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ text }}</p>
+    <div v-else>
+      <h4>Proč?</h4>
+      <p class="description-display">{{ text }}</p>
+    </div>
   </div>
 </template>
 
@@ -16,16 +19,16 @@ export default {
   props: {
     value: {
       type: String,
-      required: true,
+      required: true
     },
     label: {
       type: String,
-      required: true,
+      required: true
     },
     isEditable: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
   watch: {
     text() {
@@ -39,6 +42,6 @@ export default {
     return {
       text: this.value
     };
-  },
+  }
 };
 </script>

@@ -41,9 +41,7 @@
 export default {
   name: "Homepage",
   data() {
-    return {
-      event: null
-    };
+    return {};
   }
 };
 </script>

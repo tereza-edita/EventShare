@@ -6,7 +6,10 @@
       <span class="bar date-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ time }}</p>
+    <div v-else>
+      <h4>V kolik?</h4>
+      <p class="time-display">{{ time }}</p>
+    </div>
   </div>
 </template>
 

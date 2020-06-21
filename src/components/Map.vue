@@ -6,7 +6,10 @@
       <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ location }}</p>
+    <div v-else>
+      <h4>Kde?</h4>
+      <p class="location-display">{{ location }}</p>
+    </div>
 
     <div class="mapRender" v-show="display">
       <div ref="map" class="map"></div>

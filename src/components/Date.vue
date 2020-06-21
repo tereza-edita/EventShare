@@ -6,7 +6,10 @@
       <span class="bar date-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ date | formatDate }}</p>
+    <div v-else>
+      <h4>Kdy?</h4>
+      <p class="date-display">{{ date | formatDate }}</p>
+    </div>
   </div>
 </template>
 
