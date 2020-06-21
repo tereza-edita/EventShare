@@ -349,6 +349,21 @@ textarea:focus ~ .highlight {
   margin-bottom: 30px;
 }
 
+.password-checkbox {
+  font-size: inherit;
+  position: initial;
+  display: flex;
+  color: inherit;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.password-checkbox > input {
+  padding: 0;
+  width: initial;
+  margin-right: 1rem;
+}
+
 textarea {
   width: 100%;
   border: none;

@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div v-if="isEditable" class="form-item">
+    <div v-if="isEditable" class="password-checkbox">
+      <input type="checkbox" v-model="isRequired" />
+      <p>Zaheslovat událost</p>
+    </div>
+    <div v-if="isEditable && isRequired" class="form-item">
       <input type="text" required v-model="password" />
       <span class="highlight"></span>
       <span class="bar"></span>
@@ -36,7 +40,8 @@ export default {
   },
   data() {
     return {
-      password: this.value
+      password: this.value,
+      isRequired: false,
     };
   }
 };
