@@ -212,8 +212,20 @@ textarea:focus ~ .highlight {
 }
 
 /* Components */
+.datetime {
+  display: flex;
+}
+
+.datetime .form-item {
+  margin-right: 50px;
+}
+
 .date {
-  max-width: 200px;
+  max-width: 180px;
+}
+
+.time {
+  max-width: 180px;
 }
 
 .mapa {
