@@ -6,7 +6,7 @@
       <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>Místo: {{ location }}</p>
+    <p v-else>{{ location }}</p>
 
     <div class="mapRender" v-show="display">
       <div ref="mapa" class="mapa"></div>
