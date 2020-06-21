@@ -49,7 +49,7 @@ form {
 
 .form-item {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
   width: 100%;
 }
 
@@ -268,7 +268,7 @@ textarea:focus ~ .highlight {
 
 .create,
 .homepageBtn {
-  margin: -20px 0 20px 0;
+  margin: 0px 0 30px 0;
   padding: 10px;
   cursor: pointer;
   min-width: 150px;
@@ -346,6 +346,7 @@ textarea:focus ~ .highlight {
 .mapRender {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 textarea {
