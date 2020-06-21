@@ -9,7 +9,7 @@
     <p v-else>{{ location }}</p>
 
     <div class="mapRender" v-show="display">
-      <div ref="mapa" class="mapa"></div>
+      <div ref="map" class="map"></div>
     </div>
   </div>
 </template>
@@ -71,7 +71,7 @@ export default {
     },
     initilizeMap() {
       if (!this.initilized) {
-        const main = this.$refs.mapa;
+        const main = this.$refs.map;
         const center = SMap.Coords.fromWGS84(14.4179, 50.12655);
         this.map = new SMap(main, center, 13);
         this.map.addDefaultLayer(SMap.DEF_BASE).enable();
@@ -87,16 +87,18 @@ export default {
     }
   },
   mounted() {
-    const suggest = new SMap.Suggest(this.$refs.mapInput);
-    suggest.urlParams({
-      // omezeni pro celou CR
-      bounds: "48.5370786,12.0921668|51.0746358,18.8927040"
-    });
-    suggest.addListener("suggest", suggestData => {
-      // vyber polozky z naseptavace
-      this.location = suggestData.phrase;
-      this.showMapResult();
-    });
+    if (this.isEditable) {
+      const suggest = new SMap.Suggest(this.$refs.mapInput);
+      suggest.urlParams({
+        // omezeni pro celou CR
+        bounds: "48.5370786,12.0921668|51.0746358,18.8927040"
+      });
+      suggest.addListener("suggest", suggestData => {
+        // vyber polozky z naseptavace
+        this.location = suggestData.phrase;
+        this.showMapResult();
+      });
+    }
   }
 };
 </script>

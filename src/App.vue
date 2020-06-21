@@ -221,6 +221,15 @@ textarea:focus ~ .highlight {
   text-decoration: none;
 }
 
+#link {
+  display: flex;
+  margin: 30px 0;
+}
+
+#link > input {
+  font-size: 14px;
+}
+
 /* Pages */
 .site {
   display: flex;
@@ -246,7 +255,7 @@ textarea:focus ~ .highlight {
   max-width: 180px;
 }
 
-.mapa {
+.map {
   width: 70vw;
   max-width: 400px;
   height: 45vh;
@@ -256,7 +265,6 @@ textarea:focus ~ .highlight {
 .mapRender {
   display: flex;
   justify-content: center;
-  margin-bottom: 45px;
 }
 
 textarea {

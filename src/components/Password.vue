@@ -6,7 +6,6 @@
       <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <h1 v-else>{{ password }}</h1>
   </div>
 </template>
 
