@@ -3,7 +3,10 @@
     <h1 v-if="isEditable">Vytvořte novou událost:</h1>
     <form @submit.prevent="saveEvent">
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />
-      <MyDate label="Datum" :isEditable="isEditable" v-model="event.date" />
+      <div class="datetime">
+        <MyDate label="Datum" :isEditable="isEditable" v-model="event.date" />
+        <MyTime label="Čas" :isEditable="isEditable" v-model="event.time" />
+      </div>
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
       <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
       <MyText label="Heslo pro vstup" :isEditable="isEditable" v-model="event.password" />
@@ -18,6 +21,7 @@
 import db from "../firebase/db";
 import TextComponent from "../components/Text";
 import DateComponent from "../components/Date";
+import TimeComponent from "../components/Time";
 import TextareaComponent from "../components/Textarea";
 import MapComponent from "../components/Map";
 
@@ -26,8 +30,9 @@ export default {
   data() {
     return {
       event: {
-        date: "",
         title: "",
+        date: "",
+        time: "",
         description: "",
         venue: "",
         password: ""
@@ -39,18 +44,22 @@ export default {
       type: Boolean,
       required: true
     },
-    date: String,
     title: String,
+    date: String,
+    time: String,
     description: String,
     venue: String,
     password: String
   },
   watch: {
+    title() {
+      this.event.title = this.title;
+    },
     date() {
       this.event.date = this.date;
     },
-    title() {
-      this.event.title = this.title;
+    time() {
+      this.event.date = this.time;
     },
     description() {
       this.event.description = this.description;
@@ -65,6 +74,7 @@ export default {
   components: {
     MyText: TextComponent,
     MyDate: DateComponent,
+    MyTime: TimeComponent,
     MyTextarea: TextareaComponent,
     MyMap: MapComponent
   },
@@ -91,6 +101,16 @@ export default {
     const today = year + "-" + month + "-" + day;
 
     this.event.date = today;
+
+    let hour = date.getHours();
+    let minute = date.getMinutes();
+
+    if (hour < 10) hour = "0" + hour;
+    if (minute < 10) minute = "0" + minute;
+
+    const now = hour + ":" + minute;
+
+    this.event.time = now;
   }
 };
 </script>
