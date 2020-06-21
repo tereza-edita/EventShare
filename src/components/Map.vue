@@ -8,7 +8,7 @@
     </div>
     <p v-else>{{ value }}</p>
 
-    <div class="mapRender">
+    <div class="mapRender" v-show="display">
       <div ref="mapa" class="mapa"></div>
     </div>
   </div>
@@ -42,7 +42,9 @@ export default {
   data() {
     return {
       map: null,
-      layer: null
+      layer: null,
+      display: false,
+      initilized: false
     };
   },
   methods: {
@@ -56,22 +58,29 @@ export default {
       this.layer.addMarker(marker);
     },
     showMapResult() {
-      const address = this.value;
-      new SMap.Geocoder(address, this.mapResult);
+      this.display = true;
+      this.$nextTick(() => {
+        this.initilizeMap();
+        const address = this.value;
+        new SMap.Geocoder(address, this.mapResult);
+      });
+    },
+    initilizeMap() {
+      if (!this.initilized) {
+        let main = this.$refs.mapa;
+        let center = SMap.Coords.fromWGS84(14.4179, 50.12655);
+        this.map = new SMap(main, center, 13);
+        this.map.addDefaultLayer(SMap.DEF_BASE).enable();
+        this.map.addDefaultControls();
+
+        window.addEventListener("resize", () => this.map.syncPort());
+
+        this.layer = new SMap.Layer.Marker();
+        this.map.addLayer(this.layer);
+        this.layer.enable();
+        this.initilized = true;
+      }
     }
-  },
-  mounted() {
-    let main = this.$refs.mapa;
-    let center = SMap.Coords.fromWGS84(14.4179, 50.12655);
-    this.map = new SMap(main, center, 13);
-    this.map.addDefaultLayer(SMap.DEF_BASE).enable();
-    this.map.addDefaultControls();
-
-    window.addEventListener("resize", () => this.map.syncPort());
-
-    this.layer = new SMap.Layer.Marker();
-    this.map.addLayer(this.layer);
-    this.layer.enable();
   }
 };
 </script>

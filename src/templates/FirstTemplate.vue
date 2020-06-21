@@ -1,14 +1,14 @@
 <template>
   <div class="container">
     <h1 v-if="isEditable">Vytvořte novou událost:</h1>
-    <form>
+    <form @submit.prevent="saveEvent">
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />
       <MyDate label="Datum" :isEditable="isEditable" v-model="event.date" />
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
       <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
       <MyText label="Heslo pro vstup" :isEditable="isEditable" v-model="event.password" />
       <div class="buttonDiv">
-        <button class="create" type="submit" v-if="isEditable" @click="saveEvent">Vytvoř událost</button>
+        <button class="create" type="submit" v-if="isEditable">Vytvoř událost</button>
       </div>
     </form>
   </div>
@@ -46,21 +46,21 @@ export default {
     password: String
   },
   watch: {
-    date(){
-        this.event.date = this.date;
+    date() {
+      this.event.date = this.date;
     },
-    title(){
-        this.event.title = this.title;
+    title() {
+      this.event.title = this.title;
     },
-    description(){
-        this.event.description = this.description;
+    description() {
+      this.event.description = this.description;
     },
-    venue(){
-        this.event.venue = this.venue;
+    venue() {
+      this.event.venue = this.venue;
     },
-    password(){
-        this.event.password = this.password;
-    },
+    password() {
+      this.event.password = this.password;
+    }
   },
   components: {
     MyText: TextComponent,
@@ -74,9 +74,8 @@ export default {
         .add(this.event)
         .then(docRef => {
           docRef.update({ id: docRef.id });
+          this.$router.push(`event/${docRef.id}`);
         });
-
-      this.$router.push("event");
     }
   },
   mounted() {

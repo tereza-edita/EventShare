@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="site">
     <MyTemplate :isEditable="false" v-bind="event" />
   </div>
 </template>
@@ -12,16 +12,16 @@ export default {
   name: "Event",
   data() {
     return {
-        event: null
+      event: null
     };
   },
   components: {
     MyTemplate: FirstTemplate
   },
   firestore() {
-      return {
-          event: db.collection("events").doc(this.$route.params.id)
-      }
+    return {
+      event: db.collection("events").doc(this.$route.params.id)
+    };
   }
 };
 </script>
