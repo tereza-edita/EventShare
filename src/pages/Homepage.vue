@@ -1,30 +1,35 @@
 <template>
   <div class="site">
     <div class="container homepage">
-      <h1>Vytvořte si stránku pro vaši událost</h1>
-      <img class="homepageImg" src="../assets/schedule2.svg" />
+      <section class="heroPost">
+        <div class="homepageBody">
+          <h1 class="homepageTitle">Vytvořte si stránku pro vaši událost</h1>
+        </div>
+        <img class="homepageImg" src="../assets/schedule2.svg" />
+      </section>
+
       <p
         class="homepageP"
       >Vyrobte si vlastní stránku pro vaši akci! Není třeba se nijak registrovat. Jednoduše zadejte všechny údaje a nazpět dostanete stránku s unikátní URL, kterou můžete snadno sdílet se všemi účastníky.</p>
 
       <section class="post">
-        <img class="homepagePicture" src="../assets/checkmark.svg" />
+        <img class="homepageCheckbox" src="../assets/checkmark.svg" />
         <div class="homepageBody">
-          <p class="homepageTitle">Žádné registrace</p>
+          <p>Žádné registrace</p>
         </div>
       </section>
 
       <section class="post">
-        <img class="homepagePicture" src="../assets/checkmark.svg" />
+        <img class="homepageCheckbox" src="../assets/checkmark.svg" />
         <div class="homepageBody">
-          <p class="homepageTitle">Rychlé vytvoření</p>
+          <p>Rychlé vytvoření</p>
         </div>
       </section>
 
       <section class="post">
-        <img class="homepagePicture" src="../assets/checkmark.svg" />
+        <img class="homepageCheckbox" src="../assets/checkmark.svg" />
         <div class="homepageBody">
-          <p class="homepageTitle">Jednoduché sdílení</p>
+          <p>Jednoduché sdílení</p>
         </div>
       </section>
 
