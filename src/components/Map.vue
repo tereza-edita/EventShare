@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <input type="text" v-on:blur="showMapResult()" required v-model="value" />
+      <input type="text" ref="mapInput" required />
       <span class="highlight"></span>
       <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ value }}</p>
+    <p v-else>{{ location }}</p>
 
     <div class="mapRender" v-show="display">
       <div ref="mapa" class="mapa"></div>
@@ -33,10 +33,13 @@ export default {
   },
   watch: {
     value() {
-      this.$emit("input", this.value);
+      this.location = this.value;
       if (!this.isEditable) {
         this.showMapResult();
       }
+    },
+    location() {
+      this.$emit("input", this.location);
     }
   },
   data() {
@@ -44,16 +47,17 @@ export default {
       map: null,
       layer: null,
       display: false,
-      initilized: false
+      initilized: false,
+      location: this.value
     };
   },
   methods: {
     mapResult(response) {
-      let results = response.getResults()[0].results;
+      const results = response.getResults()[0].results;
       const cordX = results[0].coords.x;
       const cordY = results[0].coords.y;
-      let center = SMap.Coords.fromWGS84(cordX, cordY);
-      this.map.setCenterZoom(center, 14);
+      const center = SMap.Coords.fromWGS84(cordX, cordY);
+      this.map.setCenterZoom(center, 15);
       let marker = new SMap.Marker(center);
       this.layer.addMarker(marker);
     },
@@ -61,14 +65,14 @@ export default {
       this.display = true;
       this.$nextTick(() => {
         this.initilizeMap();
-        const address = this.value;
+        const address = this.location;
         new SMap.Geocoder(address, this.mapResult);
       });
     },
     initilizeMap() {
       if (!this.initilized) {
-        let main = this.$refs.mapa;
-        let center = SMap.Coords.fromWGS84(14.4179, 50.12655);
+        const main = this.$refs.mapa;
+        const center = SMap.Coords.fromWGS84(14.4179, 50.12655);
         this.map = new SMap(main, center, 13);
         this.map.addDefaultLayer(SMap.DEF_BASE).enable();
         this.map.addDefaultControls();
@@ -81,6 +85,18 @@ export default {
         this.initilized = true;
       }
     }
+  },
+  mounted() {
+    const suggest = new SMap.Suggest(this.$refs.mapInput);
+    suggest.urlParams({
+      // omezeni pro celou CR
+      bounds: "48.5370786,12.0921668|51.0746358,18.8927040"
+    });
+    suggest.addListener("suggest", suggestData => {
+      // vyber polozky z naseptavace
+      this.location = suggestData.phrase;
+      this.showMapResult();
+    });
   }
 };
 </script>

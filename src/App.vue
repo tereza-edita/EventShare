@@ -60,6 +60,7 @@ input {
 textarea {
   width: 100%;
   border: none;
+  font-size: 18px;
 }
 
 textarea:focus {
