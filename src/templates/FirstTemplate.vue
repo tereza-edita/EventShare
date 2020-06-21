@@ -93,8 +93,9 @@ export default {
       db.collection("events")
         .add(this.event)
         .then(docRef => {
-          docRef.update({ id: docRef.id });
-          this.$router.push(`event/${docRef.id}`);
+          docRef.update({ id: docRef.id }).then(() => {
+            this.$router.push(`event/${docRef.id}`);
+          });
         });
     },
     copy() {

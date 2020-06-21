@@ -7,7 +7,7 @@
       <label>{{ label }}</label>
     </div>
     <div v-else>
-      <h4>Proč?</h4>
+      <h4 class="eventh4">Proč?</h4>
       <p class="description-display">{{ text }}</p>
     </div>
   </div>

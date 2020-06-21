@@ -19,7 +19,7 @@ export default {
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
-  background: linear-gradient(#76a075, #8ba075) no-repeat;
+  background: #74a374 no-repeat;
   min-height: 100vh;
 }
 
@@ -39,7 +39,7 @@ h1 {
 }
 
 h4 {
-  color: #5264ae;
+  color: #696969;
 }
 
 form {
@@ -101,7 +101,7 @@ textarea:focus ~ label,
 textarea:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #5264ae;
+  color: #696969;
 }
 
 /* BOTTOM BARS ================================= */
@@ -127,7 +127,7 @@ textarea:valid ~ label {
   width: 0;
   bottom: 0px;
   position: absolute;
-  background: #06d7c1;
+  background: #e79c2a;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
@@ -169,7 +169,7 @@ textarea:focus ~ .highlight {
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #5264ae;
+    background: #696969;
   }
   to {
     width: 0;
@@ -187,7 +187,7 @@ textarea:focus ~ .highlight {
 }
 @keyframes inputHighlighter {
   from {
-    background: #5264ae;
+    background: #696969;
   }
   to {
     width: 0;
@@ -281,7 +281,7 @@ textarea:focus ~ .highlight {
 
 .homepageBtn:hover,
 .create:hover {
-  background-color: #6b8f6a;
+  background-color: #c28b39;
 }
 
 .homepageBtn {
@@ -391,9 +391,10 @@ textarea:focus {
 .heroPost {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 1.5rem 0 1rem 0;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 7px;
+  margin-right: 7px;
 }
 
 .heroTitle {
