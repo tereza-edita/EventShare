@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import Edit from './pages/Edit.vue'
 import Event from './pages/Event.vue'
+import Homepage from './pages/Homepage.vue'
 import './index.html'
 import { firestorePlugin } from 'vuefire'
 
@@ -13,7 +14,8 @@ const myRouter = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/', component: Edit },
-    { path: '/event/:id', component: Event }
+    { path: '/event/:id', component: Event },
+    { path: '/homepage', component: Homepage }
   ]
 })
 

@@ -19,7 +19,7 @@ export default {
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
-  background: linear-gradient(#eacda3, #d6ae7b) no-repeat;
+  background: linear-gradient(#76a075, #8ba075) no-repeat;
   min-height: 100vh;
 }
 
@@ -45,7 +45,7 @@ form {
 
 .form-item {
   position: relative;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
   width: 100%;
 }
 
@@ -194,14 +194,31 @@ textarea:focus ~ .highlight {
   justify-content: center;
 }
 
-.create {
+.create,
+.homepageBtn {
   margin: -20px 0 20px 0;
   padding: 10px;
   cursor: pointer;
-  width: 150px;
-  background-color: #d6ae7b;
+  min-width: 150px;
+  background-color: #76a075;
   border: none;
   box-shadow: 0px 10px 13px -7px #000000;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.homepageBtn:hover,
+.create:hover {
+  background-color: #6b8f6a;
+}
+
+.homepageBtn {
+  padding: 17px;
+  margin: 5px 0 30px 0;
+}
+
+.homepageLink {
+  text-decoration: none;
 }
 
 /* Pages */
@@ -252,8 +269,31 @@ textarea:focus {
   outline: none;
 }
 
-.eventTitle {
-  font-size: 25px;
-  color: #5264ae;
+/* HOMEPAGE */
+
+.homepageImg {
+  width: 30%;
+  display: block;
+  margin: auto;
+}
+
+.homepageP {
+  font-weight: 200;
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  padding-left: 1rem;
+}
+
+.homepagePicture {
+  width: 2.5rem;
+  height: auto;
+}
+
+.homepageBody {
+  margin-left: 2rem;
 }
 </style>
