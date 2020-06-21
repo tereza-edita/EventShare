@@ -9,7 +9,7 @@
       </div>
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
       <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
-      <MyText label="Heslo pro vstup" :isEditable="isEditable" v-model="event.password" />
+      <MyText label="Heslo události" :isEditable="isEditable" v-model="event.password" />
       <div class="buttonDiv">
         <button class="create" type="submit" v-if="isEditable">Vytvoř událost</button>
       </div>
