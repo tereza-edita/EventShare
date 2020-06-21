@@ -1,7 +1,6 @@
 <template>
   <div class="site">
     <MyTemplate :isEditable="false" v-bind="event" />
-    <h1>Můj text</h1>
   </div>
 </template>
 

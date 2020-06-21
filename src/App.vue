@@ -214,10 +214,11 @@ textarea:focus ~ .highlight {
 /* Components */
 .datetime {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.datetime .form-item {
-  margin-right: 50px;
+.datetime > div {
+  margin-right: 1rem;
 }
 
 .date {
@@ -248,5 +249,10 @@ textarea {
 textarea:focus {
   border: none;
   outline: none;
+}
+
+.eventTitle {
+  font-size: 25px;
+  color: #5264ae;
 }
 </style>

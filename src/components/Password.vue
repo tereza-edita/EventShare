@@ -1,18 +1,18 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <input type="time" class="time" v-model="value" />
+      <input type="text" v-model="value" />
       <span class="highlight"></span>
-      <span class="bar date-bar"></span>
+      <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>Čas: {{ value }}</p>
+    <h1 v-else>{{ value }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "TimeComponent",
+  name: "PasswordComponent",
   props: {
     value: {
       type: String,
@@ -30,6 +30,7 @@ export default {
   watch: {
     value() {
       this.$emit("input", this.value);
+      console.log(this.value);
     }
   },
   data() {

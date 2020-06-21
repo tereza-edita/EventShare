@@ -6,7 +6,7 @@
       <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <div class="event" v-else>{{ value }}</div>
+    <h1 v-else>{{ value }}</h1>
   </div>
 </template>
 

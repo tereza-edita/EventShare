@@ -9,7 +9,7 @@
       </div>
       <MyTextarea label="Popis události" :isEditable="isEditable" v-model="event.description" />
       <MyMap label="Místo konání" :isEditable="isEditable" v-model="event.venue" />
-      <MyText label="Heslo události" :isEditable="isEditable" v-model="event.password" />
+      <MyPassword label="Heslo události" :isEditable="isEditable" v-model="event.password" />
       <div class="buttonDiv">
         <button class="create" type="submit" v-if="isEditable">Vytvoř událost</button>
       </div>
@@ -24,6 +24,7 @@ import DateComponent from "../components/Date";
 import TimeComponent from "../components/Time";
 import TextareaComponent from "../components/Textarea";
 import MapComponent from "../components/Map";
+import PasswordComponent from "../components/Password";
 
 export default {
   name: "FirstTemplate",
@@ -76,7 +77,8 @@ export default {
     MyDate: DateComponent,
     MyTime: TimeComponent,
     MyTextarea: TextareaComponent,
-    MyMap: MapComponent
+    MyMap: MapComponent,
+    MyPassword: PasswordComponent
   },
   methods: {
     saveEvent() {

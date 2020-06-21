@@ -6,7 +6,7 @@
       <span class="bar date-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ value }}</p>
+    <p v-else>Datum: {{ value }}</p>
   </div>
 </template>
 
@@ -34,6 +34,6 @@ export default {
   },
   data() {
     return {};
-  },
+  }
 };
 </script>
