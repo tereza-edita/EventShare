@@ -192,6 +192,70 @@ textarea:focus ~ .highlight {
 .buttonDiv {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.homepageBtn:after {
+  content: "";
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  animation: slide 3s infinite 1s;
+  /* border: 1px solid orange; */
+
+  /* 
+  CSS Gradient - complete browser support from http://www.colorzilla.com/gradient-editor/ 
+  */
+  background: -moz-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(128, 186, 232, 0) 99%,
+    rgba(125, 185, 232, 0) 100%
+  ); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0%, rgba(255, 255, 255, 0)),
+    color-stop(50%, rgba(255, 255, 255, 0.8)),
+    color-stop(99%, rgba(128, 186, 232, 0)),
+    color-stop(100%, rgba(125, 185, 232, 0))
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(128, 186, 232, 0) 99%,
+    rgba(125, 185, 232, 0) 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(128, 186, 232, 0) 99%,
+    rgba(125, 185, 232, 0) 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(128, 186, 232, 0) 99%,
+    rgba(125, 185, 232, 0) 100%
+  ); /* IE10+ */
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .create,
@@ -215,6 +279,8 @@ textarea:focus ~ .highlight {
 .homepageBtn {
   padding: 17px;
   margin: 5px 0 30px 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .homepageLink {
@@ -279,29 +345,38 @@ textarea:focus {
 
 /* HOMEPAGE */
 
-.homepageImg {
-  width: 30%;
-  display: block;
-  margin: auto;
-}
-
 .homepageP {
   font-weight: 200;
+  text-align: justify;
+  margin: 0 20px 20px 20px;
 }
 
-.post {
+.post,
+.heroPost {
   display: flex;
   align-items: center;
   margin-bottom: 0.7rem;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
 }
 
-.homepagePicture {
+.heroPost {
+  margin-top: 1.5rem;
+}
+
+.homepageCheckbox {
   width: 2.5rem;
   height: auto;
 }
 
+.homepageImg {
+  width: 25%;
+}
+
 .homepageBody {
-  margin-left: 2rem;
+  margin-left: 1rem;
+}
+
+.homepageTitle {
+  margin-left: -1.5rem;
 }
 </style>
