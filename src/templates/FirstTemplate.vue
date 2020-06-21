@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <h1 v-if="isEditable">Vytvořte novou událost:</h1>
+    <section v-if="isEditable" class="heroPost">
+      <h1 class="heroTitle">Vytvořte novou událost</h1>
+      <img class="heroImg" src="../assets/schedule2.svg" />
+    </section>
     <form @submit.prevent="saveEvent">
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />
       <div class="datetime">

@@ -1,11 +1,9 @@
 <template>
   <div class="site">
-    <div class="container homepage">
+    <div class="container">
       <section class="heroPost">
-        <div class="homepageBody">
-          <h1 class="homepageTitle">Vytvořte si stránku pro vaši událost</h1>
-        </div>
-        <img class="homepageImg" src="../assets/schedule2.svg" />
+        <h1 class="heroTitle">Vytvořte si stránku pro vaši událost</h1>
+        <img class="heroImg" src="../assets/schedule2.svg" />
       </section>
 
       <p

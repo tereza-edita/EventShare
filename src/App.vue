@@ -286,7 +286,7 @@ textarea:focus ~ .highlight {
 
 .homepageBtn {
   padding: 17px;
-  margin: 5px 0 30px 0;
+  margin: 10px 0 30px 0;
   position: relative;
   overflow: hidden;
 }
@@ -364,19 +364,29 @@ textarea:focus {
 .homepageP {
   font-weight: 200;
   text-align: justify;
-  margin: 0 20px 20px 20px;
+  margin: 0 15px 20px 15px;
 }
 
-.post,
-.heroPost {
+.post {
   display: flex;
   align-items: center;
   margin-bottom: 0.7rem;
   padding-left: 1.5rem;
 }
-
 .heroPost {
-  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 1.5rem 0 1rem 0;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.heroTitle {
+  text-align: center;
+}
+
+.heroImg {
+  width: 23%;
 }
 
 .homepageCheckbox {
@@ -384,15 +394,7 @@ textarea:focus {
   height: auto;
 }
 
-.homepageImg {
-  width: 25%;
-}
-
 .homepageBody {
   margin-left: 1rem;
-}
-
-.homepageTitle {
-  margin-left: -1.5rem;
 }
 </style>
