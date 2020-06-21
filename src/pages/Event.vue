@@ -23,10 +23,14 @@ export default {
     const event = db.collection("events").doc(this.$route.params.id);
     event.onSnapshot(doc => {
       const eventData = doc.data();
-      let password;
-      do {
-        password = prompt(`Zadejte heslo k události "${eventData.title}":`);
-      } while (password !== eventData.password);
+
+      if (eventData.password !== "") {
+        let password;
+        do {
+          password = prompt(`Zadejte heslo k události "${eventData.title}":`);
+        } while (password !== eventData.password);
+      }
+
       this.displayContent = true;
     });
     return {
