@@ -6,13 +6,13 @@
       <span class="bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ value }}</p>
+    <div class="event" v-else>{{ value }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TextComponent',
+  name: "TextComponent",
   props: {
     value: {
       type: String,
@@ -28,12 +28,13 @@ export default {
     }
   },
   watch: {
-    value () {
-      this.$emit('input', this.value)
+    value() {
+      this.$emit("input", this.value);
+      console.log(this.value);
     }
   },
-  data () {
-    return {}
+  data() {
+    return {};
   }
-}
+};
 </script>
