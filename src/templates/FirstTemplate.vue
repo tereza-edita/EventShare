@@ -65,7 +65,7 @@ export default {
       this.event.date = this.date;
     },
     time() {
-      this.event.date = this.time;
+      this.event.time = this.time;
     },
     description() {
       this.event.description = this.description;

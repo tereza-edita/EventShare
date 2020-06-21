@@ -6,7 +6,7 @@
       <span class="bar date-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ date }}</p>
+    <p v-else>{{ date | formatDate }}</p>
   </div>
 </template>
 
@@ -35,9 +35,16 @@ export default {
       this.date = this.value;
     }
   },
+  filters: {
+    formatDate(date) {
+      if (!date) return "";
+      const [year, month, day] = date.split("-");
+      return day + "." + month + "." + year;
+    }
+  },
   data() {
     return {
-      date: this.value,
+      date: this.value
     };
   }
 };

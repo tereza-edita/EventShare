@@ -28,11 +28,11 @@
         </div>
       </section>
 
-      <a href="./" class="homepageLink">
+      <router-link to="/" class="homepageLink">
         <div class="buttonDiv">
           <button class="homepageBtn">Vytvoř svou první událost</button>
         </div>
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
