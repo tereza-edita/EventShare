@@ -208,7 +208,7 @@ textarea:focus ~ .highlight {
 .site {
   display: flex;
   justify-content: center;
-  padding: 10px 5px;
+  padding: 15px 15px;
 }
 
 /* Components */
@@ -230,8 +230,9 @@ textarea:focus ~ .highlight {
 }
 
 .mapa {
-  width: 60vw;
-  height: 50vh;
+  width: 70vw;
+  max-width: 400px;
+  height: 45vh;
   border: 1px solid black;
 }
 
