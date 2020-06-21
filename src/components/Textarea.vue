@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <textarea type="text" required rows="5" v-model="value"> </textarea>
+      <textarea type="text" required rows="5" v-model="text"></textarea>
       <span class="highlight"></span>
       <span class="bar description-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>{{ value }}</p>
+    <p v-else>{{ text }}</p>
   </div>
 </template>
 
@@ -28,12 +28,17 @@ export default {
     },
   },
   watch: {
-    value() {
-      this.$emit("input", this.value);
+    text() {
+      this.$emit("input", this.text);
     },
+    value() {
+      this.text = this.value;
+    }
   },
   data() {
-    return {};
+    return {
+      text: this.value
+    };
   },
 };
 </script>

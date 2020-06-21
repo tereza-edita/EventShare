@@ -1,12 +1,12 @@
 <template>
   <div>
     <div v-if="isEditable" class="form-item">
-      <input type="date" class="date" v-model="value" />
+      <input type="date" class="date" v-model="date" />
       <span class="highlight"></span>
       <span class="bar date-bar"></span>
       <label>{{ label }}</label>
     </div>
-    <p v-else>Datum: {{ value }}</p>
+    <p v-else>{{ date }}</p>
   </div>
 </template>
 
@@ -28,12 +28,17 @@ export default {
     }
   },
   watch: {
+    date() {
+      this.$emit("input", this.date);
+    },
     value() {
-      this.$emit("input", this.value);
+      this.date = this.value;
     }
   },
   data() {
-    return {};
+    return {
+      date: this.value,
+    };
   }
 };
 </script>
