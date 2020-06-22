@@ -2,7 +2,7 @@
   <div class="site">
     <div class="container">
       <section class="heroPost">
-        <h1 class="heroTitle">Vytvořte si virtuální pozvánku</h1>
+        <h1 class="heroTitle">EventShare - vaše virtuální pozvánka</h1>
         <router-link class="heroRouter" to="/">
           <img class="heroImg" src="../assets/schedule2.svg" />
         </router-link>
