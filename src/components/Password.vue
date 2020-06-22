@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       password: this.value,
-      isRequired: false,
+      isRequired: false
     };
   }
 };

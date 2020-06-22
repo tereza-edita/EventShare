@@ -127,7 +127,7 @@ textarea:valid ~ label {
   width: 0;
   bottom: 0px;
   position: absolute;
-  background: #e79c2a;
+  background: #ffa754;
   transition: 0.3s ease all;
   -moz-transition: 0.3s ease all;
   -webkit-transition: 0.3s ease all;
@@ -201,6 +201,7 @@ textarea:focus ~ .highlight {
   display: flex;
   justify-content: center;
   position: relative;
+  margin: 0px 0 30px 0;
 }
 
 .homepageBtn:after {
@@ -213,7 +214,6 @@ textarea:focus ~ .highlight {
   position: absolute;
   z-index: 1;
   animation: slide 3s infinite 1s;
-  /* border: 1px solid orange; */
 
   /* 
   CSS Gradient - complete browser support from http://www.colorzilla.com/gradient-editor/ 
@@ -268,8 +268,7 @@ textarea:focus ~ .highlight {
 
 .create,
 .homepageBtn {
-  margin: 0px 0 30px 0;
-  padding: 10px;
+  padding: 16px;
   cursor: pointer;
   min-width: 150px;
   background-color: #e79c2a;
@@ -277,6 +276,7 @@ textarea:focus ~ .highlight {
   box-shadow: 0px 10px 13px -7px #000000;
   font-size: 0.9rem;
   font-weight: 700;
+  margin-top: 10px;
 }
 
 .homepageBtn:hover,
@@ -285,14 +285,16 @@ textarea:focus ~ .highlight {
 }
 
 .homepageBtn {
-  padding: 17px;
-  margin: 10px 0 30px 0;
   position: relative;
   overflow: hidden;
+  box-shadow: 0px 10px 13px -7px #000000;
 }
 
 .homepageLink {
   text-decoration: none;
+  height: auto;
+  /* overflow: hidden; */
+  margin: 0;
 }
 
 #link {
@@ -322,11 +324,11 @@ textarea:focus ~ .highlight {
 }
 
 .date {
-  max-width: 180px;
+  max-width: 175px;
 }
 
 .time {
-  max-width: 180px;
+  max-width: 175px;
 }
 
 .date-display,
@@ -356,12 +358,14 @@ textarea:focus ~ .highlight {
   color: inherit;
   align-items: center;
   margin-bottom: 10px;
+  color: #696969;
 }
 
 .password-checkbox > input {
   padding: 0;
   width: initial;
   margin-right: 1rem;
+  margin-top: 1px;
 }
 
 textarea {
@@ -395,13 +399,19 @@ textarea:focus {
   margin: 1.5rem 0 1rem 0;
   margin-left: 7px;
   margin-right: 7px;
+  height: 7rem;
 }
 
 .heroTitle {
   text-align: center;
+  width: 77%;
 }
 
 .heroImg {
+  width: 100%;
+}
+
+.heroRouter {
   width: 23%;
 }
 

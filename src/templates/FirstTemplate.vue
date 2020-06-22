@@ -2,7 +2,9 @@
   <div class="container">
     <section v-if="isEditable" class="heroPost">
       <h1 class="heroTitle">Vytvořte novou událost</h1>
-      <img class="heroImg" src="../assets/schedule2.svg" />
+      <router-link class="heroRouter" to="/homepage">
+        <img class="heroImg" src="../assets/schedule2.svg" />
+      </router-link>
     </section>
     <form @submit.prevent="saveEvent">
       <MyText label="Název události" :isEditable="isEditable" v-model="event.title" />

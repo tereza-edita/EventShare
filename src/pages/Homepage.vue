@@ -3,7 +3,9 @@
     <div class="container">
       <section class="heroPost">
         <h1 class="heroTitle">Vytvořte si stránku pro vaši událost</h1>
-        <img class="heroImg" src="../assets/schedule2.svg" />
+        <router-link class="heroRouter" to="/homepage">
+          <img class="heroImg" src="../assets/schedule2.svg" />
+        </router-link>
       </section>
 
       <p
@@ -31,11 +33,11 @@
         </div>
       </section>
 
-      <router-link to="/" class="homepageLink">
-        <div class="buttonDiv">
+      <div class="buttonDiv">
+        <router-link to="/" class="homepageLink">
           <button class="homepageBtn">Vytvoř svou první událost</button>
-        </div>
-      </router-link>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
