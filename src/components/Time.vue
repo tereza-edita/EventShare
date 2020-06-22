@@ -7,7 +7,7 @@
       <label>{{ label }}</label>
     </div>
     <div v-else>
-      <h4>V kolik?</h4>
+      <h4>Čas</h4>
       <p class="time-display">{{ time }}</p>
     </div>
   </div>

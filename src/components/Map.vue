@@ -7,7 +7,7 @@
       <label>{{ label }}</label>
     </div>
     <div v-else>
-      <h4>Kde?</h4>
+      <h4 class="h4map">Místo</h4>
       <p class="location-display">{{ location }}</p>
     </div>
 

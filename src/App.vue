@@ -39,7 +39,8 @@ h1 {
 }
 
 h4 {
-  color: #696969;
+  color: black;
+  font-weight: 700;
 }
 
 form {
@@ -423,4 +424,6 @@ textarea:focus {
 .homepageBody {
   margin-left: 1rem;
 }
+
+/* EVENT */
 </style>

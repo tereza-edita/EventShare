@@ -2,8 +2,8 @@
   <div class="container">
     <section v-if="isEditable" class="heroPost">
       <h1 class="heroTitle">Vytvořte novou událost</h1>
-      <router-link class="heroRouter" to="/homepage">
-        <img class="heroImg" src="../assets/schedule2.svg" />
+      <router-link class="heroRouter" to="/">
+        <img class="heroImg" src="../assets/schedule2.svg" alt="Icon provided by Pixel perfect" />
       </router-link>
     </section>
     <form @submit.prevent="saveEvent">

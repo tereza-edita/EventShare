@@ -13,9 +13,9 @@ Vue.use(VueRouter)
 const myRouter = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: Edit },
+    { path: '/edit', component: Edit },
     { path: '/event/:id', component: Event },
-    { path: '/homepage', component: Homepage }
+    { path: '/', component: Homepage }
   ]
 })
 

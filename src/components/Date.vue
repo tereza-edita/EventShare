@@ -7,7 +7,7 @@
       <label>{{ label }}</label>
     </div>
     <div v-else>
-      <h4>Kdy?</h4>
+      <h4 class="h4date">Datum</h4>
       <p class="date-display">{{ date | formatDate }}</p>
     </div>
   </div>
